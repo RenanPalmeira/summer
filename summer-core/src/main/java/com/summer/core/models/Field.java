@@ -22,13 +22,13 @@ public class Field {
 
     public Field() {}
 
-    public String getName() {
-        return name;
-    }
-
     public Field(String name, String type) {
         this.name = name;
         this.type = type;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
