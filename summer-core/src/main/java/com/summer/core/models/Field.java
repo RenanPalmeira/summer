@@ -1,6 +1,8 @@
-package com.summer.core;
+package com.summer.core.models;
 
-
+/**
+ * Created by renanpalmeira on 28/12/17.
+ */
 public class Field {
     /**
      * Field Properties
@@ -18,8 +20,15 @@ public class Field {
     private boolean multiValued = false;
     private boolean required = false;
 
+    public Field() {}
+
     public String getName() {
         return name;
+    }
+
+    public Field(String name, String type) {
+        this.name = name;
+        this.type = type;
     }
 
     public void setName(String name) {

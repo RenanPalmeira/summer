@@ -1,9 +1,20 @@
 package com.summer.core.client;
 
-import java.util.List;
-import com.summer.core.Field;
+import feign.Feign;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
+import com.summer.core.SchemaClientApi;
 
+/**
+ * Created by renanpalmeira on 31/12/17.
+ */
+public class SolrClient {
 
-public interface SolrClient {
-    List<Field> loadFromEndpoint(String endpoint);
+    public SchemaClientApi getSchemaClientApi() {
+        return Feign
+                .builder()
+                .decoder(new JacksonDecoder())
+                .encoder(new JacksonEncoder())
+                .target(SchemaClientApi.class, "http://localhost:8983/solr/collection1/");
+    }
 }
